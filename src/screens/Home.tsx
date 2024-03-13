@@ -20,7 +20,7 @@ const products: Product[] = [
         "images": ["https://cdn.dummyjson.com/product-images/1/1.jpg", "https://cdn.dummyjson.com/product-images/1/2.jpg", "https://cdn.dummyjson.com/product-images/1/3.jpg", "https://cdn.dummyjson.com/product-images/1/4.jpg", "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"]
     },
     {
-        "id": 1,
+        "id": 2,
         "title": "iPhone 9",
         "description": "An apple mobile which is nothing like apple",
         "price": 549,
@@ -33,7 +33,7 @@ const products: Product[] = [
         "images": ["https://cdn.dummyjson.com/product-images/1/1.jpg", "https://cdn.dummyjson.com/product-images/1/2.jpg", "https://cdn.dummyjson.com/product-images/1/3.jpg", "https://cdn.dummyjson.com/product-images/1/4.jpg", "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"]
     },
     {
-        "id": 1,
+        "id": 3,
         "title": "iPhone 9",
         "description": "An apple mobile which is nothing like apple",
         "price": 549,
@@ -45,7 +45,7 @@ const products: Product[] = [
         "thumbnail": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg",
         "images": ["https://cdn.dummyjson.com/product-images/1/1.jpg", "https://cdn.dummyjson.com/product-images/1/2.jpg", "https://cdn.dummyjson.com/product-images/1/3.jpg", "https://cdn.dummyjson.com/product-images/1/4.jpg", "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"]
     },  {
-        "id": 1,
+        "id": 4,
         "title": "iPhone 9",
         "description": "An apple mobile which is nothing like apple",
         "price": 549,
@@ -61,12 +61,14 @@ const products: Product[] = [
 const Home = () => {
 
     return (
+        <ScrollView contentContainerStyle={globalStyles.scrollViewContainer}>
+
         <View style={globalStyles.container}>
-            <ScrollView contentContainerStyle={globalStyles.scrollViewContainer}>
                 <Banner/>
                 <ProductList products={products}/>
-            </ScrollView>
         </View>
+        </ScrollView>
+
 
     );
 };

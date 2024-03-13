@@ -13,7 +13,7 @@ const ProductList = ({products}: ProductsProps) => {
     return (
         <View style={productList.product_list}>
             {products.map((product) => (
-                <ProductItem product={product}/>
+                <ProductItem key={product.id} product={product}/>
             ))}
         </View>
     );

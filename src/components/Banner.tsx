@@ -2,6 +2,7 @@ import React from 'react';
 import { View,  Image} from "react-native";
 import Swiper from 'react-native-swiper';
 import {banner} from "@/styles/components/banner";
+import {globalStyles} from "@/styles/globalStyles";
 
 const Banner = () => {
     const images = [
@@ -12,12 +13,12 @@ const Banner = () => {
 
     return (
         <Swiper style={banner.slider_wrapper}
-                dotStyle={banner.dot}
-                activeDotStyle={banner.active_dot}
+                dotStyle={globalStyles.dot}
+                activeDotStyle={globalStyles.active_dot}
                 autoplay={true}>
             {images.map((image, index) => (
                 <View style={banner.slider_inner} key={index}>
-                    <Image source={image} style={banner.image}/>
+                    <Image source={image} style={globalStyles.banner_image}/>
                 </View>
             ))}
         </Swiper>
