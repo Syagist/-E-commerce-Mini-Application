@@ -1,20 +1,18 @@
 import {StyleSheet} from "react-native";
-import {COLOR_BLACK, COLOR_WHITE} from "../../constants/Colors";
+import {COLOR_BLACK, COLOR_WHITE} from "@/constants/Colors";
 
 export const banner = StyleSheet.create({
     slider_wrapper: {
-        height: 215,
-        marginBottom: 10,
+        height: 235,
     },
     slider_inner: {
-        borderRadius: 10,
-        height: 215,
-        position: "relative",
-        overflow: "hidden"
+        marginBottom:15
     },
     image: {
         width: "100%",
-        height: "100%"
+        height: "100%",
+        borderRadius: 10,
+        overflow: "hidden",
     },
     dot: {
         width: 8,

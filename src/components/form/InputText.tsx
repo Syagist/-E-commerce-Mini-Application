@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, TextInput, View} from 'react-native';
-import {inputText} from "../../styles/components/form/inputText";
+import {inputText} from "@/styles/components/form/inputText";
 
 interface TextInputProps {
     label: string;

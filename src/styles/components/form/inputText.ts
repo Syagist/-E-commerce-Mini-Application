@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {COLOR_DANGER, COLOR_GRAY, COLOR_WHITE} from "../../../constants/Colors";
+import {COLOR_DANGER, COLOR_GRAY, COLOR_WHITE} from "@/constants/Colors";
 
 export const inputText = StyleSheet.create({
     wrapper: {

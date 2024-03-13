@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {COLOR_PRIMARY, COLOR_WHITE} from "../../../constants/Colors";
+import {COLOR_PRIMARY, COLOR_WHITE} from "@/constants/Colors";
 
 export const buttonPrimary = StyleSheet.create({
     button: {

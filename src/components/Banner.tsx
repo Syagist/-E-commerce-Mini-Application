@@ -1,13 +1,13 @@
 import React from 'react';
-import {Dimensions, View, Text, Image} from "react-native";
+import { View,  Image} from "react-native";
 import Swiper from 'react-native-swiper';
-import {banner} from "../styles/components/banner";
+import {banner} from "@/styles/components/banner";
 
 const Banner = () => {
     const images = [
-        require('../assets/images/banner/banner1.jpg'),
-        require('../assets/images/banner/banner2.jpg'),
-        require('../assets/images/banner/banner3.jpg'),
+        require('@/assets/images/banner/banner1.jpg'),
+        require('@/assets/images/banner/banner2.jpg'),
+        require('@/assets/images/banner/banner3.jpg'),
     ];
 
     return (
