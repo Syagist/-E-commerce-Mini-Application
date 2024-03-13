@@ -1,10 +1,11 @@
 import React from 'react';
+import {View} from "react-native";
 
 const AppNavigator = () => {
     return (
-        <div>
+        <View>
             Navigation
-        </div>
+        </View>
     );
 };
 

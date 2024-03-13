@@ -1,18 +1,41 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet} from 'react-native';
+import {Provider} from "react-redux";
+import store from './src/store/store';
+import React, {useEffect} from 'react';
+// import AsyncStorage from '@react-native-async-storage/async-storage';
+import {createStackNavigator} from '@react-navigation/stack';
+import Login from './src/screens/Login';
+import Home from './src/screens/Home';
+import {NavigationContainer} from '@react-navigation/native';
+
+const Stack = createStackNavigator();
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
+
+    useEffect(() => {
+        checkLoginStatus();
+    }, []);
+
+    const checkLoginStatus = async () => {
+        try {
+            // const token = await AsyncStorage.getItem('token');
+            // if (token !== null) {
+            // } else {
+            // }
+        } catch (error) {
+            console.error('Error checking login status:', error);
+        }
+    };
+
+    return (
+        <Provider store={store}>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName="Home">
+                    <Stack.Screen name="Home" component={Home}/>
+                </Stack.Navigator>
+            </NavigationContainer>
+        </Provider>
+    );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
