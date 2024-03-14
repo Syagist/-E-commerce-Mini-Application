@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
 import HomeIcon from "@/components/icons/HomeIcon";
@@ -15,19 +15,36 @@ import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {globalStyles} from "@/styles/globalStyles";
 import {COLOR_PRIMARY} from "@/constants/Colors";
 import Products from "@/screens/Products";
+import Login from "@/screens/Login";
+import {useDispatch, useSelector} from "react-redux";
+import {loadUserData} from "@/store/slices/authSlice";
+import {RootState} from "@/store/store";
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
+
+    const dispatch = useDispatch();
+    const user = useSelector((state: RootState) => state.auth.userData);
+
+    useEffect(() => {
+        dispatch(loadUserData());
+    }, [dispatch]);
+
     const MainStack = () => {
         return (
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={Home}/>
                 <Stack.Screen name="ProductDetail" component={ProductDetail}/>
                 <Stack.Screen name="Products" component={Products}/>
+                <Stack.Screen name="Login" component={Login}/>
             </Stack.Navigator>
         );
     };
+    if (!user) {
+        return <Login/>;
+    }
 
     return (
         <NavigationContainer>
@@ -46,15 +63,16 @@ const AppNavigator = () => {
                                 return <ProfileIcon color={color}/>
                         }
                     },
-                    tabBarLabel: ({color})=>{
+                    tabBarLabel: ({color}) => {
                         return <Text
                             style={{
                                 ...globalStyles.app_navigation_label,
-                                color: color}}
+                                color: color
+                            }}
                         >{route.name === "MainStack" ? "Home" : route.name}</Text>
                     }
                 })}>
-                <Tab.Screen name="MainStack" component={MainStack} />
+                <Tab.Screen name="MainStack" component={Login}/>
                 <Tab.Screen name="Categories" component={Categories}/>
                 <Tab.Screen name="WishList" component={WishList}/>
                 <Tab.Screen name="Profile" component={Profile}/>

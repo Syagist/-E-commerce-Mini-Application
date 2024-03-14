@@ -1,18 +1,20 @@
-import React, {useEffect, useState} from 'react';
-import {Image, Text, View} from "react-native";
+import React, {useState} from 'react';
+import {Text, View} from "react-native";
 import ButtonPrimary from "@/components/form/ButtonPrimary";
 import {globalStyles} from "@/styles/globalStyles";
 import InputText from "@/components/form/InputText";
 import {login} from "@/styles/sreens/login";
+import {useDispatch} from "react-redux";
+import {loginUser} from "@/store/slices/authSlice";
+import LogoIcon from "@/components/icons/LogoIcon";
 
 const Login = () => {
-    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-
-    const loginUser = () => {
-        console.log('login')
+    const dispatch = useDispatch();
+    const handleLogin = () => {
+        dispatch(loginUser(userName, password));
     }
-
 
     return (
         <View style={globalStyles.container}>
@@ -20,32 +22,31 @@ const Login = () => {
                 <View style={login.input_wrapper}>
                     <Text style={login.title}>
                         Login
-                        {email}
-                        { password}
                     </Text>
-                    {/*<Logo width={120} height={40} />*/}
-                    <Image style={login.logo} source={require('@/assets/images/banner/banner1.jpg')}/>
+                    <View style={login.logo_wrapper}>
+                        <LogoIcon/>
+                    </View>
                 </View>
                 <View style={login.input_wrapper}>
                     <View style={login.input_wrapper}>
                         <InputText
-                            label='Username'
+                            label='Username  (kminchelle)'
                             type='text'
                             required={true}
-                            onChange={(value) => setEmail(value)}/>
+                            onChange={(value) => setUserName(value)}/>
                     </View>
                     <View style={login.input_wrapper}>
                         <InputText
-                            label='Password'
+                            label='Password (0lelplR)'
                             type='password'
                             required={true}
-                            onChange={(value) => setEmail(value)}
+                            onChange={(value) => setPassword(value)}
                         />
                     </View>
                 </View>
 
                 <View style={login.input_wrapper}>
-                    <ButtonPrimary text='Login' onPress={loginUser}/>
+                    <ButtonPrimary text='Login' onPress={handleLogin}/>
                 </View>
             </View>
         </View>

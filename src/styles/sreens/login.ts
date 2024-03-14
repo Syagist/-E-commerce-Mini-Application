@@ -2,6 +2,7 @@ import {StyleSheet} from "react-native";
 
 export const login = StyleSheet.create({
     container: {
+        flex: 1,
         display: "flex",
         alignItems: "center",
         alignContent: "center",
@@ -20,6 +21,14 @@ export const login = StyleSheet.create({
     },
     input_wrapper: {
         width: '100%',
+    },
+    logo_wrapper: {
+        width: '100%',
+        display: "flex",
+        alignItems: "center",
+        alignContent: "center",
+        justifyContent: "center",
+        marginTop:30
     },
     logo: {
         width: 140,

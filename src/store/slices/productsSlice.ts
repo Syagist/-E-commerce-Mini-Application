@@ -21,7 +21,7 @@ const fetchProducts = createAsyncThunk(
     }
 );
 
-const fetchProductsByCategry = createAsyncThunk(
+const fetchProductsByCategory = createAsyncThunk(
     'products/fetchProducts',
     async (category: string) => {
         try {
@@ -57,4 +57,4 @@ const productSlice = createSlice({
 
 export default productSlice.reducer;
 
-export {fetchProducts, fetchProductsByCategry};
+export {fetchProducts, fetchProductsByCategory};
