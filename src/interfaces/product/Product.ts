@@ -15,3 +15,9 @@ export interface Product {
 export interface ProductProps {
     product: Product;
 }
+
+export interface ProductState {
+    products: Product[];
+    loading: boolean;
+    error: string | null;
+}
