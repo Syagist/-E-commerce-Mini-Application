@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 import {favoriteButton} from "@/styles/components/favoriteButton";
-import favorite from '@/assets/icons/favorite.svg';
+import FavoriteIcon from "@/components/icons/FavoriteIcon";
+import FavoriteFilledIcon from "@/components/icons/FavoriteFilledIcon";
 
 interface FavoriteButtonProps {
     isFavorite: boolean;
@@ -11,8 +12,7 @@ interface FavoriteButtonProps {
 const FavoriteButton = ({isFavorite, onPress}: FavoriteButtonProps) => {
     return (
         <TouchableOpacity style={favoriteButton.button} onPress={onPress}>
-            { isFavorite  ? <Text>favorite</Text> : <Text>add favorite</Text>}
-
+            { isFavorite  ? <FavoriteFilledIcon /> : <FavoriteIcon />}
         </TouchableOpacity>
     );
 };
