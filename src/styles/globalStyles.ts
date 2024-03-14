@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {COLOR_BLACK, COLOR_WHITE} from "@/constants/Colors";
+import {COLOR_BLACK, COLOR_GRAY, COLOR_WHITE} from "@/constants/Colors";
 import {APP_LEFT_PADDING, APP_RIGHT_PADDING} from "@/constants/Sizes";
 
 export const globalStyles = StyleSheet.create({
@@ -10,6 +10,15 @@ export const globalStyles = StyleSheet.create({
         paddingRight: APP_RIGHT_PADDING,
         height: '100%',
         backgroundColor: COLOR_WHITE,
+    },
+    app_navigation: {},
+    app_navigation_label: {
+        color: COLOR_GRAY,
+        textAlign: "center",
+        fontSize: 10,
+        lineHeight: 12,
+        fontWeight: "400",
+        textTransform: 'capitalize'
     },
     scrollViewContainer: {},
     banner_image: {

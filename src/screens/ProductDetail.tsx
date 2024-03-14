@@ -6,12 +6,7 @@ import Swiper from "react-native-swiper";
 import {useRoute} from "@react-navigation/native";
 import {productDetail} from "@/styles/sreens/productDetail";
 import {calculateDiscount} from "@/utils/helpers";
-import {login} from "@/styles/sreens/login";
-import SvgComponent from "@/components/icons/StarIcon";
-import FavoriteIcon from "@/components/icons/FavoriteIcon";
-import FavoriteFilledIcon from "@/components/icons/FavoriteFilledIcon";
 import StarIcon from "@/components/icons/StarIcon";
-import SearchIcon from "@/components/icons/SearchIcon";
 
 const ProductDetail = () => {
     const route = useRoute();

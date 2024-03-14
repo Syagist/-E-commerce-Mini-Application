@@ -1,15 +1,8 @@
-import {StyleSheet} from 'react-native';
 import {Provider} from "react-redux";
 import store from './src/store/store';
 import React, {useEffect} from 'react';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
-import {createStackNavigator} from '@react-navigation/stack';
-import Login from './src/screens/Login';
-import Home from './src/screens/Home';
-import {NavigationContainer} from '@react-navigation/native';
-import ProductDetail from "@/screens/ProductDetail";
+import AppNavigator from "@/navigation/AppNavigator";
 
-const Stack = createStackNavigator();
 
 export default function App() {
 
@@ -31,12 +24,7 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <NavigationContainer>
-                <Stack.Navigator initialRouteName="Home">
-                    <Stack.Screen name="Home" component={Home}/>
-                    <Stack.Screen name="ProductDetail" component={ProductDetail}/>
-                </Stack.Navigator>
-            </NavigationContainer>
+            <AppNavigator/>
         </Provider>
     );
 }
