@@ -4,7 +4,7 @@ import {APP_LEFT_PADDING, APP_RIGHT_PADDING} from "@/constants/Sizes";
 
 export const globalStyles = StyleSheet.create({
     container: {
-        paddingTop: 24,
+        paddingTop: 50,
         paddingBottom: 24,
         paddingLeft: APP_LEFT_PADDING,
         paddingRight: APP_RIGHT_PADDING,

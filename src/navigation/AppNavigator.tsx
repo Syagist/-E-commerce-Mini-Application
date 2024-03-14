@@ -71,7 +71,7 @@ const AppNavigator = () => {
                         >{route.name === "MainStack" ? "Home" : route.name}</Text>
                     }
                 })}>
-                <Tab.Screen name="MainStack" component={Login}/>
+                <Tab.Screen name="MainStack" component={MainStack}/>
                 <Tab.Screen name="Categories" component={Categories}/>
                 <Tab.Screen name="WishList" component={WishList}/>
                 <Tab.Screen name="Profile" component={Profile}/>

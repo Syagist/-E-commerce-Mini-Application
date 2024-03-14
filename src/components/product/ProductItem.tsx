@@ -4,10 +4,11 @@ import {productItem} from "@/styles/components/product/productItem";
 import {ProductProps} from "@/interfaces/product/Product";
 import FavoriteButton from "@/components/form/FavoriteButton";
 import {useNavigation} from '@react-navigation/native';
-
+import { StackNavigationProp } from '@react-navigation/stack';
+import {RootStackParamList} from "@/interfaces/RootStackParamList";
 
 const ProductItem = ({product}: ProductProps) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
     const navigateToDetail = () => {
         navigation.navigate('ProductDetail', {product: product});

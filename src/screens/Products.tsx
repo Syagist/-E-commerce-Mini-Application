@@ -23,8 +23,6 @@ const Products = () => {
                 <ProductList products={products}/>
             </View>
         </ScrollView>
-
-
     );
 };
 
