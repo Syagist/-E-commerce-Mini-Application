@@ -9,9 +9,9 @@ const products: Product[] = [
     {
         "id": 1,
         "title": "iPhone 9",
-        "description": "An apple mobile which is nothing like apple",
-        "price": 549,
-        "discountPercentage": 12.96,
+        "description": "Lorem ipsum dolor sit amet consectetur. Morbi adipiscing donec eget nisl. Porttitor scelerisque adipiscing porta purus. Morbi amet morbi praesent duis. Aliquam sapien a turpis purus molestie.",
+        "price": 400,
+        "discountPercentage": 20,
         "rating": 4.69,
         "stock": 94,
         "brand": "Apple",
