@@ -11,7 +11,9 @@ export const globalStyles = StyleSheet.create({
         height: '100%',
         backgroundColor: COLOR_WHITE,
     },
-    app_navigation: {},
+    app_navigation: {
+
+    },
     app_navigation_label: {
         color: COLOR_GRAY,
         textAlign: "center",

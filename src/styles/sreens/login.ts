@@ -25,6 +25,7 @@ export const login = StyleSheet.create({
     logo_wrapper: {
         width: '100%',
         display: "flex",
+        
         alignItems: "center",
         alignContent: "center",
         justifyContent: "center",

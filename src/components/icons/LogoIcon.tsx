@@ -4,7 +4,7 @@ import Svg, {Defs, LinearGradient, Mask, Path, G, Stop} from 'react-native-svg';
 
 const LogoIcon = () => {
     return (
-        <Svg width="140" height="84" viewBox="0 0 140 84" fill="none">
+        <Svg  viewBox="0 0 140 84" fill="none">
             <Mask id="mask0_1_1206" maskUnits="userSpaceOnUse" x="0" y="0" width="140"
                   height="84">
                 <Path d="M140 0H0V84H140V0Z" fill="white"/>

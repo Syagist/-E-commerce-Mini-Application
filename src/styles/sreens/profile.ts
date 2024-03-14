@@ -9,7 +9,6 @@ export const profile = StyleSheet.create({
         justifyContent: 'space-between',
         paddingTop: 24,
         paddingBottom: 16
-
     },
     profile_info_wrapper: {
         flexDirection: 'row',

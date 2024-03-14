@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text} from "react-native";
+import {Text, View} from "react-native";
 import {NavigationContainer} from "@react-navigation/native";
 import HomeIcon from "@/components/icons/HomeIcon";
 import CategoriesIcon from "@/components/icons/CategoriesIcon";
@@ -18,6 +18,8 @@ import Products from "@/screens/Products";
 import Login from "@/screens/Login";
 import {loadUserData} from "@/store/slices/authSlice";
 import {RootState, useAppDispatch, useAppSelector} from "@/store/store";
+import NavWithBackAndSearch from "@/navigation/NavWithBackAndSearch";
+import NavWithLogoAndSearch from "@/navigation/NavWithLogoAndSearch";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -34,7 +36,7 @@ const AppNavigator = () => {
     const MainStack = () => {
         return (
             <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={Home}/>
+                <Stack.Screen name="Home" component={Home} options={{ headerTitle: () => <NavWithLogoAndSearch  /> }}/>
                 <Stack.Screen name="ProductDetail" component={ProductDetail}/>
                 <Stack.Screen name="Products" component={Products}/>
                 <Stack.Screen name="Login" component={Login}/>
@@ -71,8 +73,8 @@ const AppNavigator = () => {
                         >{route.name === "MainStack" ? "Home" : route.name}</Text>
                     }
                 })}>
-                <Tab.Screen name="MainStack" component={MainStack}/>
-                <Tab.Screen name="Categories" component={Categories}/>
+                <Tab.Screen name="MainStack" component={MainStack} options={{ headerTitle: () => <View style={{height:0}}></View> }}/>
+                <Tab.Screen name="Categories" component={Categories} options={{ headerTitle: () => <NavWithBackAndSearch title='Categorories' onBackPress={()=>{}} /> }}/>
                 <Tab.Screen name="WishList" component={WishList}/>
                 <Tab.Screen name="Profile" component={Profile}/>
             </Tab.Navigator>

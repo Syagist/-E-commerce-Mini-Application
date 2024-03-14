@@ -25,7 +25,9 @@ const Login = () => {
                         Login
                     </Text>
                     <View style={login.logo_wrapper}>
-                        <LogoIcon/>
+                        <View style={login.logo}>
+                            <LogoIcon/>
+                        </View>
                     </View>
                 </View>
                 <View style={login.input_wrapper}>
