@@ -4,14 +4,15 @@ import ButtonPrimary from "@/components/form/ButtonPrimary";
 import {globalStyles} from "@/styles/globalStyles";
 import InputText from "@/components/form/InputText";
 import {login} from "@/styles/sreens/login";
-import {useDispatch} from "react-redux";
 import {loginUser} from "@/store/slices/authSlice";
 import LogoIcon from "@/components/icons/LogoIcon";
+import {useAppDispatch} from "@/store/store";
 
 const Login = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
+
     const handleLogin = () => {
         dispatch(loginUser(userName, password));
     }

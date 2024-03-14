@@ -7,6 +7,7 @@ const initialState: AuthState = {
     isAuthenticated: false,
     userData: null
 };
+
 export const loginUser = (userName: string, password: string) => async (dispatch) => {
     try {
         fetch(AUTH_API, {

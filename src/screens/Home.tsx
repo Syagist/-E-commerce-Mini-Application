@@ -4,12 +4,12 @@ import {globalStyles} from '@/styles/globalStyles';
 import Banner from '@/components/Banner';
 import ProductList from "@/components/product/ProductList";
 import {fetchProducts} from "@/store/slices/productsSlice";
-import {RootState} from "@/store/store";
-import {useDispatch, useSelector} from "react-redux";
+import {RootState, useAppDispatch, useAppSelector} from "@/store/store";
+
 
 const Home = () => {
-    const dispatch = useDispatch();
-    const products = useSelector((state: RootState) => state.products.products);
+    const dispatch = useAppDispatch();
+    const products = useAppSelector((state: RootState) => state.products.products);
 
     useEffect(() => {
         dispatch(fetchProducts());

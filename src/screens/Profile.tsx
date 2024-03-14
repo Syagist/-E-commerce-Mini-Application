@@ -1,12 +1,12 @@
 import React from 'react';
 import {Text, View} from "react-native";
-import {login} from "@/styles/sreens/login";
 import ButtonPrimary from "@/components/form/ButtonPrimary";
-import {useDispatch} from "react-redux";
-import {loginUser, logout, logoutUser} from "@/store/slices/authSlice";
+import {logoutUser} from "@/store/slices/authSlice";
+import {useAppDispatch} from "@/store/store";
 
 const Profile = () => {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
+
     const handleLogout = () => {
         dispatch(logoutUser());
     }

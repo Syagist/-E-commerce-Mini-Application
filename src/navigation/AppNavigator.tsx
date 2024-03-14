@@ -16,17 +16,16 @@ import {globalStyles} from "@/styles/globalStyles";
 import {COLOR_PRIMARY} from "@/constants/Colors";
 import Products from "@/screens/Products";
 import Login from "@/screens/Login";
-import {useDispatch, useSelector} from "react-redux";
 import {loadUserData} from "@/store/slices/authSlice";
-import {RootState} from "@/store/store";
+import {RootState, useAppDispatch, useAppSelector} from "@/store/store";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
 
-    const dispatch = useDispatch();
-    const user = useSelector((state: RootState) => state.auth.userData);
+    const dispatch = useAppDispatch();
+    const user = useAppSelector((state: RootState) => state.auth.userData);
 
     useEffect(() => {
         dispatch(loadUserData());
