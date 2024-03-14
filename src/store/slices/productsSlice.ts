@@ -1,6 +1,5 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { RootState } from '../store';
-import {Product, ProductState} from "@/interfaces/product/Product";
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {ProductState} from "@/interfaces/product/Product";
 import {PRODUCTS_API} from "@/constants/AppConstants";
 
 const initialState: ProductState = {
@@ -14,6 +13,19 @@ const fetchProducts = createAsyncThunk(
     async () => {
         try {
             const response = await fetch(PRODUCTS_API);
+            const data = await response.json();
+            return data.products;
+        } catch (error) {
+            throw Error('Failed to fetch products');
+        }
+    }
+);
+
+const fetchProductsByCategry = createAsyncThunk(
+    'products/fetchProducts',
+    async (category: string) => {
+        try {
+            const response = await fetch(PRODUCTS_API + '/category/' + category);
             const data = await response.json();
             return data.products;
         } catch (error) {
@@ -45,4 +57,4 @@ const productSlice = createSlice({
 
 export default productSlice.reducer;
 
-export { fetchProducts };
+export {fetchProducts, fetchProductsByCategry};

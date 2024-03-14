@@ -1,8 +1,8 @@
 import React from 'react';
 import {Image, View} from 'react-native';
 import {Product} from "@/interfaces/product/Product";
-import ProductItem from "@/components/ProductItem";
-import {productList} from "@/styles/components/productList";
+import ProductItem from "@/components/product/ProductItem";
+import {productList} from "@/styles/components/product/productList";
 
 interface ProductsProps {
     products: Product[];

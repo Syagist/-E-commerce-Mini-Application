@@ -1,23 +1,27 @@
 import React, {useEffect} from 'react';
 import {ScrollView, View} from 'react-native';
 import {globalStyles} from '@/styles/globalStyles';
-import Banner from '@/components/Banner';
 import ProductList from "@/components/product/ProductList";
-import {fetchProducts} from "@/store/slices/productsSlice";
+import {fetchProductsByCategry} from "@/store/slices/productsSlice";
 import {RootState} from "@/store/store";
 import {useDispatch, useSelector} from "react-redux";
+import {useRoute} from "@react-navigation/native";
+import {CategoryProps} from "@/interfaces/category/Category";
+import {CategoryItemProps} from "@/components/category/CategoryItem";
 
-const Home = () => {
+const Products = () => {
     const dispatch = useDispatch();
     const products = useSelector((state: RootState) => state.products.products);
-
+    const route = useRoute();
+    const {category} = route.params as CategoryItemProps;
     useEffect(() => {
-        dispatch(fetchProducts());
+        console.log(category)
+        dispatch(fetchProductsByCategry(category));
     }, [dispatch]);
+
     return (
         <ScrollView contentContainerStyle={globalStyles.scrollViewContainer}>
             <View style={globalStyles.container}>
-                <Banner/>
                 <ProductList products={products}/>
             </View>
         </ScrollView>
@@ -26,4 +30,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Products;

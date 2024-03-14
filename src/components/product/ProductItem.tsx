@@ -1,6 +1,6 @@
 import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
-import {productItem} from "@/styles/components/productItem";
+import {productItem} from "@/styles/components/product/productItem";
 import {ProductProps} from "@/interfaces/product/Product";
 import FavoriteButton from "@/components/form/FavoriteButton";
 import {useNavigation} from '@react-navigation/native';

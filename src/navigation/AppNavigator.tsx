@@ -14,6 +14,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {globalStyles} from "@/styles/globalStyles";
 import {COLOR_PRIMARY} from "@/constants/Colors";
+import Products from "@/screens/Products";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +24,7 @@ const AppNavigator = () => {
             <Stack.Navigator initialRouteName="Home">
                 <Stack.Screen name="Home" component={Home}/>
                 <Stack.Screen name="ProductDetail" component={ProductDetail}/>
+                <Stack.Screen name="Products" component={Products}/>
             </Stack.Navigator>
         );
     };
