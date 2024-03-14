@@ -21,11 +21,16 @@ const fetchProducts = createAsyncThunk(
     }
 );
 
+interface ProductCategoryQuery {
+    category?: string,
+    limit?: number
+}
+
 const fetchProductsByCategory = createAsyncThunk(
     'products/fetchProducts',
-    async (category: string) => {
+    async ({category = '', limit = 1000}: ProductCategoryQuery) => {
         try {
-            const response = await fetch(PRODUCTS_API + '/category/' + category);
+            const response = await fetch(PRODUCTS_API + '/category/' + category + '?limit=' + limit);
             const data = await response.json();
             return data.products;
         } catch (error) {

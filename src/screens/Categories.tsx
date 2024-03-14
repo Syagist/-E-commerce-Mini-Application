@@ -6,12 +6,8 @@ import {globalStyles} from "@/styles/globalStyles";
 import CategoryList from "@/components/category/CategoryList";
 
 const Categories = () => {
-    const dispatch = useAppDispatch();
     const categories = useAppSelector((state: RootState) => state.categories);
 
-    useEffect(() => {
-        dispatch(fetchCategories());
-    }, [dispatch]);
 
     return (
         <ScrollView contentContainerStyle={globalStyles.scrollViewContainer}>

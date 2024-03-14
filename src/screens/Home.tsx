@@ -14,6 +14,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch]);
+
     return (
         <ScrollView contentContainerStyle={globalStyles.scrollViewContainer}>
             <View style={globalStyles.container}>

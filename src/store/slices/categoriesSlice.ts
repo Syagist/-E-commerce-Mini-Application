@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {CATEGORY_API} from "@/constants/AppConstants";
+import {CATEGORIES_API} from "@/constants/AppConstants";
 import {CategoryState} from "@/interfaces/category/Category";
 
 const initialState: CategoryState = {
@@ -12,7 +12,7 @@ const fetchCategories = createAsyncThunk(
     'categories/fetchCategories',
     async () => {
         try {
-            const response = await fetch(CATEGORY_API);
+            const response = await fetch(CATEGORIES_API);
             return await response.json();
         } catch (error) {
             throw Error('Failed to fetch categories');
