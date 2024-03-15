@@ -12,7 +12,7 @@ export interface CategoryItemProps {
 const CategoryItem = ({category}: CategoryItemProps) => {
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
-    const navigateToDetail = () => {
+    const openProductsPage = () => {
         navigation.navigate('Products', {category: category});
     }
 
@@ -20,7 +20,7 @@ const CategoryItem = ({category}: CategoryItemProps) => {
 
 
     return (
-        <TouchableOpacity style={categoryItem.category_wrapper} onPress={navigateToDetail}>
+        <TouchableOpacity style={categoryItem.category_wrapper} onPress={openProductsPage}>
             <Text style={categoryItem.text}>{category}</Text>
             <Image style={categoryItem.image} source={src}/>
         </TouchableOpacity>

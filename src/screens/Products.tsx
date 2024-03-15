@@ -14,7 +14,7 @@ const Products = () => {
     const {category} = route.params as CategoryItemProps;
 
     useEffect(() => {
-        dispatch(fetchProductsByCategory(category));
+        dispatch(fetchProductsByCategory({ category,limit:1000 }));
     }, [dispatch]);
 
     return (
