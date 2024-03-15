@@ -16,7 +16,7 @@ const CategoryItem = ({category}: CategoryItemProps) => {
         navigation.navigate('Products', {category: category});
     }
 
-    const src = require("../../assets/images/categories/" + "laptops" + ".jpg");
+    const src = require("../../assets/images/categories/" + category + ".jpg");
 
 
     return (
