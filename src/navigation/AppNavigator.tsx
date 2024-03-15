@@ -21,6 +21,7 @@ import {RootState, useAppDispatch, useAppSelector} from "@/store/store";
 import NavWithBackAndSearch from "@/navigation/NavWithBackAndSearch";
 import NavWithLogoAndSearch from "@/navigation/NavWithLogoAndSearch";
 
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 

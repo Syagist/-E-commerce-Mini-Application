@@ -28,7 +28,7 @@ interface ProductCategoryQuery {
 
 const fetchProductsByCategory = createAsyncThunk(
     'products/fetchProducts',
-    async ({category = '', limit = 1000}: ProductCategoryQuery) => {
+    async ({category = '', limit = 4}: ProductCategoryQuery) => {
         try {
             const response = await fetch(PRODUCTS_API + '/category/' + category + '?limit=' + limit);
             const data = await response.json();
@@ -45,15 +45,15 @@ const productSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProducts.pending, (state) => {
+            .addCase(fetchProductsByCategory.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(fetchProducts.fulfilled, (state, action) => {
+            .addCase(fetchProductsByCategory.fulfilled, (state, action) => {
                 state.loading = false;
                 state.products = action.payload;
             })
-            .addCase(fetchProducts.rejected, (state, action) => {
+            .addCase(fetchProductsByCategory.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message ?? 'Failed to fetch products';
             });

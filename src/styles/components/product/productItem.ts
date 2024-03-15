@@ -8,7 +8,7 @@ const cardSize = (width - APP_LEFT_PADDING - APP_RIGHT_PADDING - offset) / 2;
 
 export const productItem = StyleSheet.create({
     product_wrapper: {
-        marginBottom: 10,
+        marginBottom: 16,
         width: cardSize,
     },
     product_image_wrapper: {

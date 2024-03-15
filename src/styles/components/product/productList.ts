@@ -4,6 +4,7 @@ export const productList = StyleSheet.create({
     product_list: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
+        marginBottom:8
     },
 });
