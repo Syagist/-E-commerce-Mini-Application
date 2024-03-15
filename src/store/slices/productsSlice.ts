@@ -21,6 +21,19 @@ const fetchProductsByQuery = createAsyncThunk(
     }
 );
 
+const fetchProduct = createAsyncThunk(
+    'products/fetchProduct',
+    async ({query = ''}: ProductSearchQuery) => {
+        try {
+            const response = await fetch(PRODUCTS_API + `/${query}`);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            throw Error('Failed to fetch products');
+        }
+    }
+);
+
 interface ProductCategoryQuery {
     category?: string,
     limit?: number
@@ -78,4 +91,4 @@ const productSlice = createSlice({
 
 export default productSlice.reducer;
 
-export {fetchProductsByQuery, fetchProductsByCategory};
+export {fetchProductsByQuery, fetchProductsByCategory, fetchProduct};

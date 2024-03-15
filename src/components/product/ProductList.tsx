@@ -8,7 +8,6 @@ interface ProductsProps {
     products: Product[];
 }
 
-
 const ProductList = ({products}: ProductsProps) => {
     if(!products || products.length === 0){
        return (
