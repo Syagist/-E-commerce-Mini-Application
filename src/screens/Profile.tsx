@@ -1,5 +1,5 @@
-import React from 'react';
-import {Image, ScrollView, Text, TouchableOpacity, View} from "react-native";
+import React, {useEffect} from 'react';
+import {Image, Text, TouchableOpacity, View} from "react-native";
 import {logoutUser} from "@/store/slices/authSlice";
 import {RootState, useAppDispatch, useAppSelector} from "@/store/store";
 import {globalStyles} from "@/styles/globalStyles";
@@ -10,6 +10,10 @@ import ArrowIcon from "@/components/icons/ArrowIcon";
 const Profile = () => {
     const dispatch = useAppDispatch();
     const user = useAppSelector((state: RootState) => state.auth.userData);
+
+    useEffect(() => {
+        console.log(user)
+    }, [user]);
 
     const handleLogout = () => {
         dispatch(logoutUser());

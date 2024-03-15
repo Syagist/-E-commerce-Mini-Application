@@ -14,14 +14,15 @@ export const loginUser = (userName: string, password: string) => async (dispatch
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                username: 'kminchelle',
-                password: '0lelplR',
+                username: userName,
+                password: password,
             })
         }).then(res => res.json())
             .then(async (res) => {
                 const userData = JSON.stringify(res);
                 await AsyncStorage.setItem('userData', userData);
                 dispatch(login(userData));
+                dispatch(loadUserData()); // Load user data immediately after login
             });
 
 
@@ -52,6 +53,7 @@ export const loadUserData = () => async (dispatch) => {
 export const logoutUser = () => async (dispatch) => {
     try {
         await AsyncStorage.removeItem('userData');
+        await AsyncStorage.removeItem('userFavorites');
         dispatch(logout());
     } catch (error) {
         console.error('Logout error:', error);
