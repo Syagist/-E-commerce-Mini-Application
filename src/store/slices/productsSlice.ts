@@ -8,11 +8,11 @@ const initialState: ProductState = {
     error: null,
 };
 
-const fetchProducts = createAsyncThunk(
-    'products/fetchProducts',
-    async () => {
+const fetchProductsByQuery = createAsyncThunk(
+    'products/fetchProductsByQuery',
+    async ({query = ''}: ProductSearchQuery) => {
         try {
-            const response = await fetch(PRODUCTS_API);
+            const response = await fetch(PRODUCTS_API + `/search?q=${query}`);
             const data = await response.json();
             return data.products;
         } catch (error) {
@@ -24,6 +24,10 @@ const fetchProducts = createAsyncThunk(
 interface ProductCategoryQuery {
     category?: string,
     limit?: number
+}
+
+interface ProductSearchQuery {
+    query?: string,
 }
 
 const fetchProductsByCategory = createAsyncThunk(
@@ -56,10 +60,22 @@ const productSlice = createSlice({
             .addCase(fetchProductsByCategory.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message ?? 'Failed to fetch products';
+            })
+            .addCase(fetchProductsByQuery.pending, (state) => {
+                state.loading = true;
+                state.error = null;
+            })
+            .addCase(fetchProductsByQuery.fulfilled, (state, action) => {
+                state.loading = false;
+                state.products = action.payload;
+            })
+            .addCase(fetchProductsByQuery.rejected, (state, action) => {
+                state.loading = false;
+                state.error = action.error.message ?? 'Failed to fetch products';
             });
     },
 });
 
 export default productSlice.reducer;
 
-export {fetchProducts, fetchProductsByCategory};
+export {fetchProductsByQuery, fetchProductsByCategory};

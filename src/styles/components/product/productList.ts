@@ -7,4 +7,9 @@ export const productList = StyleSheet.create({
         flexWrap: 'wrap',
         marginBottom:8
     },
+    empty: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        marginBottom:8
+    },
 });

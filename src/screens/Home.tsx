@@ -38,12 +38,7 @@ const Home = () => {
         fetchData()
     }, [dispatch, categories]);
 
-    const loadProductsOfCategory = (category:string) => {
-        console.log(category);
-        console.log('123123')
-        return
 
-    };
 
     return (
         <ScrollView contentContainerStyle={globalStyles.scrollViewContainer}>

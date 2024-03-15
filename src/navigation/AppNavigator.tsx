@@ -20,6 +20,8 @@ import {loadUserData} from "@/store/slices/authSlice";
 import {RootState, useAppDispatch, useAppSelector} from "@/store/store";
 import NavWithBackAndSearch from "@/navigation/NavWithBackAndSearch";
 import NavWithLogoAndSearch from "@/navigation/NavWithLogoAndSearch";
+import Search from "@/screens/Search";
+import NavWithBackAndSearchInput from "@/navigation/NavWithBackAndSearchInput";
 
 
 const Stack = createStackNavigator();
@@ -37,9 +39,14 @@ const AppNavigator = () => {
     const MainStack = () => {
         return (
             <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={Home} options={{ headerTitle: () => <NavWithLogoAndSearch  /> }}/>
+                <Stack.Screen name="Home" component={Home} options={{headerTitle: () => <NavWithLogoAndSearch/>}}/>
                 <Stack.Screen name="ProductDetail" component={ProductDetail}/>
                 <Stack.Screen name="Products" component={Products}/>
+                <Stack.Screen name="Search" component={Search} options={{
+                    headerLeft: () => null,
+                    headerTitle: () => <NavWithBackAndSearchInput onBackPress={() => {
+                    }}/>
+                }}/>
                 <Stack.Screen name="Login" component={Login}/>
             </Stack.Navigator>
         );
@@ -74,8 +81,12 @@ const AppNavigator = () => {
                         >{route.name === "MainStack" ? "Home" : route.name}</Text>
                     }
                 })}>
-                <Tab.Screen name="MainStack" component={MainStack} options={{ headerTitle: () => <View style={{height:0}}></View> }}/>
-                <Tab.Screen name="Categories" component={Categories} options={{ headerTitle: () => <NavWithBackAndSearch title='Categorories' onBackPress={()=>{}} /> }}/>
+                <Tab.Screen name="MainStack" component={MainStack}
+                            options={{headerTitle: () => <View style={{height: 0}}></View>}}/>
+                <Tab.Screen name="Categories" component={Categories} options={{
+                    headerTitle: () => <NavWithBackAndSearch title='Categorories' onBackPress={() => {
+                    }}/>
+                }}/>
                 <Tab.Screen name="WishList" component={WishList}/>
                 <Tab.Screen name="Profile" component={Profile}/>
             </Tab.Navigator>
