@@ -44,8 +44,7 @@ const AppNavigator = () => {
                 <Stack.Screen name="Products" component={Products}/>
                 <Stack.Screen name="Search" component={Search} options={{
                     headerLeft: () => null,
-                    headerTitle: () => <NavWithBackAndSearchInput onBackPress={() => {
-                    }}/>
+                    headerTitle: () => <NavWithBackAndSearchInput/>
                 }}/>
                 <Stack.Screen name="Login" component={Login}/>
             </Stack.Navigator>
@@ -84,8 +83,7 @@ const AppNavigator = () => {
                 <Tab.Screen name="MainStack" component={MainStack}
                             options={{headerTitle: () => <View style={{height: 0}}></View>}}/>
                 <Tab.Screen name="Categories" component={Categories} options={{
-                    headerTitle: () => <NavWithBackAndSearch title='Categorories' onBackPress={() => {
-                    }}/>
+                    headerTitle: () => <NavWithBackAndSearch title='Categorories'/>
                 }}/>
                 <Tab.Screen name="WishList" component={WishList}/>
                 <Tab.Screen name="Profile" component={Profile}/>
