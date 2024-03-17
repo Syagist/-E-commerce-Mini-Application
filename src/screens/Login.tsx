@@ -7,14 +7,24 @@ import {login} from "@/styles/sreens/login";
 import {loginUser} from "@/store/slices/authSlice";
 import LogoIcon from "@/components/icons/LogoIcon";
 import {useAppDispatch} from "@/store/store";
+import {useLoader} from "@/context/LoaderProvider";
 
 const Login = () => {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useAppDispatch();
+    const {showLoader, hideLoader} = useLoader();
 
-    const handleLogin = () => {
-        dispatch(loginUser(userName, password));
+
+    const handleLogin = async () => {
+        try {
+            showLoader()
+             dispatch(loginUser(userName, password)).then((data) => {
+                hideLoader();
+            });
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     return (

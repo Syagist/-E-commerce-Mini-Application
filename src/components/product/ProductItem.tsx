@@ -34,7 +34,7 @@ const ProductItem = ({product}: ProductProps) => {
 
             if (product) {
                 if (isFavorite) {
-                    favorites = favorites.filter(favorite => favorite !== product.id); // Corrected line
+                    favorites = favorites.filter(favorite => favorite !== product.id);
                     setIsFavorite(false)
                 } else {
                     favorites.push(product.id);

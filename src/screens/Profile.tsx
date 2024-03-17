@@ -11,10 +11,6 @@ const Profile = () => {
     const dispatch = useAppDispatch();
     const user = useAppSelector((state: RootState) => state.auth.userData);
 
-    useEffect(() => {
-        console.log(user)
-    }, [user]);
-
     const handleLogout = () => {
         dispatch(logoutUser());
     }

@@ -6,12 +6,16 @@ import {useAppDispatch} from "@/store/store";
 import {fetchProduct} from "@/store/slices/productsSlice";
 import ProductList from "@/components/product/ProductList";
 import {globalStyles} from "@/styles/globalStyles";
+import {useLoader} from "@/context/LoaderProvider";
 
 const WishList = () => {
     const dispatch = useAppDispatch();
     const [products, setProducts] = useState([]);
+    const {showLoader, hideLoader} = useLoader();
+
 
     const fetchData = async (favorites:[]) => {
+        showLoader()
         try {
             const fetchedProducts = [];
             for (const favorite of favorites) {
@@ -21,6 +25,7 @@ const WishList = () => {
                     });
             }
             setProducts(fetchedProducts);
+            hideLoader()
         } catch (error) {
             console.error('Error fetching products:', error);
         }

@@ -64,7 +64,7 @@ export const profile = StyleSheet.create({
         color: COLOR_LIGHT_BLACK
     },
     btn_arrow: {
-        transform: [{rotate: '180deg'}], // Rotate the view by 45 degrees
+        transform: [{rotate: '180deg'}],
         width: 20,
         height: 20
     }

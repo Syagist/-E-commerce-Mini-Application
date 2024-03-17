@@ -15,7 +15,7 @@ export const loginUser = (userName: string, password: string) => async (dispatch
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 username: 'kminchelle',
-                password: '',
+                password: '0lelplR',
             })
         }).then(res => res.json())
             .then(async (res) => {
@@ -28,9 +28,12 @@ export const loginUser = (userName: string, password: string) => async (dispatch
                 dispatch(loadUserData());
             }).catch(error => {
             console.error('Login error:', error);
+            throw new Error( error);
+
         });
     } catch (error) {
         console.error('Login error:', error);
+        throw new Error(error);
     }
 };
 const authSlice = createSlice({
@@ -60,6 +63,8 @@ export const logoutUser = () => async (dispatch) => {
         dispatch(logout());
     } catch (error) {
         console.error('Logout error:', error);
+        throw new Error(error);
+
     }
 };
 

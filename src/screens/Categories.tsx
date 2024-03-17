@@ -8,7 +8,6 @@ import CategoryList from "@/components/category/CategoryList";
 const Categories = () => {
     const categories = useAppSelector((state: RootState) => state.categories);
 
-
     return (
         <ScrollView contentContainerStyle={globalStyles.scrollViewContainer}>
             <View style={globalStyles.container}>

@@ -10,6 +10,7 @@ import {home} from "@/styles/sreens/home";
 import {useNavigation} from "@react-navigation/native";
 import {StackNavigationProp} from "@react-navigation/stack";
 import {RootStackParamList} from "@/interfaces/RootStackParamList";
+import {useLoader} from "@/context/LoaderProvider";
 
 
 const Home = () => {
@@ -17,8 +18,11 @@ const Home = () => {
     const categories = useAppSelector((state: RootState) => state.categories.categories);
     const [categoriesWithProducts, setCategoriesWithProducts] = useState({});
     const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+    const {showLoader, hideLoader} = useLoader();
 
     useEffect(() => {
+        showLoader()
+
         dispatch(fetchCategories());
     }, []);
 
@@ -32,6 +36,7 @@ const Home = () => {
                             [category]: res,
                         }));
                     });
+                hideLoader()
 
             });
         };

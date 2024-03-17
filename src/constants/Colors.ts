@@ -8,4 +8,5 @@ export const COLOR_MEDIUM_GRAY =  '#8F8F8F';
 export const COLOR_DANGER =  '#D56363';
 export const COLOR_RED =  '#F34040';
 export const COLOR_DARK_GRAY =  '#777777';
+export const COLOR_MODAL_BG =  'rgba(0,0,0,0.4)';
 
