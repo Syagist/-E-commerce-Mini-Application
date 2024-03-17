@@ -81,12 +81,13 @@ const AppNavigator = () => {
                     }
                 })}>
                 <Tab.Screen name="MainStack" component={MainStack}
-                            options={{headerTitle: () => <View style={{height: 0}}></View>}}/>
+                            options={{unmountOnBlur: true,headerTitle: () => <View style={{height: 0}}></View>}}/>
                 <Tab.Screen name="Categories" component={Categories} options={{
+                    unmountOnBlur: true,
                     headerTitle: () => <NavWithBackAndSearch title='Categorories'/>
                 }}/>
-                <Tab.Screen name="WishList" component={WishList}/>
-                <Tab.Screen name="Profile" component={Profile}/>
+                <Tab.Screen name="WishList" component={WishList} options={{unmountOnBlur: true}}/>
+                <Tab.Screen name="Profile"  component={Profile} options={{unmountOnBlur: true}}/>
             </Tab.Navigator>
 
         </NavigationContainer>
