@@ -28,7 +28,7 @@ const Home = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            categories.forEach(async (category) => {
+            for (const category of categories) {
                 await dispatch(fetchProductsByCategory({category})).then(res => res.payload)
                     .then(async (res) => {
                         setCategoriesWithProducts((prevState) => ({
@@ -38,7 +38,7 @@ const Home = () => {
                     });
                 hideLoader()
 
-            });
+            }
         };
         fetchData()
     }, [dispatch, categories]);

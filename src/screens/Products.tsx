@@ -6,15 +6,19 @@ import {fetchProductsByCategory} from "@/store/slices/productsSlice";
 import {RootState, useAppDispatch, useAppSelector} from "@/store/store";
 import {useRoute} from "@react-navigation/native";
 import {CategoryItemProps} from "@/components/category/CategoryItem";
+import {useLoader} from "@/context/LoaderProvider";
 
 const Products = () => {
     const dispatch = useAppDispatch();
     const products = useAppSelector((state: RootState) => state.products.products);
     const route = useRoute();
     const {category} = route.params as CategoryItemProps;
+    const {showLoader, hideLoader} = useLoader();
+
 
     useEffect(() => {
-        dispatch(fetchProductsByCategory({ category,limit:1000 }));
+        showLoader()
+        dispatch(fetchProductsByCategory({ category,limit:1000 })).then(() => hideLoader());
     }, [dispatch]);
 
     return (
