@@ -1,5 +1,9 @@
 {
   "expo": {
+    "splash": {
+      "image": "./src/assets/images/logo.png",
+      "backgroundColor": "#FFFFFF"
+    },
     "extra": {
       "eas": {
         "projectId": "c68606c7-ec50-433e-9e31-ce230a424520"

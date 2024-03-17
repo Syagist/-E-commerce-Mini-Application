@@ -14,8 +14,8 @@ export const loginUser = (userName: string, password: string) => async (dispatch
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                username: userName,
-                password: password,
+                username: 'kminchelle',
+                password: '0lelplR',
             })
         }).then(res => res.json())
             .then(async (res) => {
