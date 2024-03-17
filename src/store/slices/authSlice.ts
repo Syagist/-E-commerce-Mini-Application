@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {AuthState} from "@/interfaces/user/AuthState";
+import {AuthState, User} from "@/interfaces/user/AuthState";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {AUTH_API} from "@/constants/AppConstants";
 
@@ -15,17 +15,20 @@ export const loginUser = (userName: string, password: string) => async (dispatch
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 username: 'kminchelle',
-                password: '0lelplR',
+                password: '',
             })
         }).then(res => res.json())
             .then(async (res) => {
-                const userData = JSON.stringify(res);
-                await AsyncStorage.setItem('userData', userData);
+                const userData = res as User;
+                if (!userData.id) {
+                    throw new Error('Wrong Email Or Password');
+                }
+                await AsyncStorage.setItem('userData', JSON.stringify(userData));
                 dispatch(login(userData));
-                dispatch(loadUserData()); // Load user data immediately after login
-            });
-
-
+                dispatch(loadUserData());
+            }).catch(error => {
+            console.error('Login error:', error);
+        });
     } catch (error) {
         console.error('Login error:', error);
     }
